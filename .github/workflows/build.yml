@@ -59,4 +59,15 @@ jobs:
         hub release create "${assets[@]}" -m "$RELEASE_TAG" "$RELEASE_TAG"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Push to Pages
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      with:
+        source-directory: 'build'
+        destination-github-username: 'coderus'
+        destination-repository-name: 'firelamp'
+        user-email: coderusinbox@gmail.com
+        target-branch: main
 
