@@ -60,14 +60,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
-    - name: Push to Pages
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+    - name: Deploy GH Actions
+      if: github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        source-directory: 'build'
-        destination-github-username: 'coderus'
-        destination-repository-name: 'firelamp'
-        user-email: coderusinbox@gmail.com
-        target-branch: main
+        folder: build
+        branch: gh-pages
 
