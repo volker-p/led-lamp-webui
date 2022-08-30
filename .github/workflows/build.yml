@@ -37,8 +37,8 @@ jobs:
         cp -f gzipped/index.html.gz data
         cp -f gzipped/favicon.ico.gz data
         cp build/index.html data/index-cdn.html
-        sed -i 's#href="#href="https://coderus.github.io/firelamp#g' data/index-cdn.html
-        sed -i 's#src="#src="https://coderus.github.io/firelamp#g' data/index-cdn.html
+        sed -i 's#href="#href="https://coderus.github.io/led-lamp-webui#g' data/index-cdn.html
+        sed -i 's#src="#src="https://coderus.github.io/led-lamp-webui#g' data/index-cdn.html
         gzip data/index-cdn.html
       
     - name: Upload build result
