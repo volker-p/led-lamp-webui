@@ -14,7 +14,7 @@ export const Header = ({ powerOn, webSocketConnection }) => (
           <PowerButton powerOn={powerOn} />
           <UpdateModal />
           <EmojiBtn
-            title="Update"
+            title="WiFi Settings"
             className="icon-btn"
             onClick={() => {
               window.location.href = '/wifi.html'
