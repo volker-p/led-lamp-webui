@@ -82,6 +82,7 @@ wsServer.on('request', function (request) {
       console.log(message)
       const data = JSON.parse(message.utf8Data)
       EVENTS[data.event](data.data)
+      sendState(connection)
     }
   })
   // user disconnected
