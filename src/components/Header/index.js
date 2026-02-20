@@ -2,6 +2,7 @@ import React from 'react'
 import { PowerButton } from '../PowerButton'
 import { WSReconnectButton } from '../WSReconnectButton'
 import { UpdateModal } from '../UpdateModal'
+import { PluginModal } from '../PluginModal'
 import { EmojiBtn } from '../EmojiBtn'
 
 export const Header = ({ powerOn, webSocketConnection }) => (
@@ -13,6 +14,7 @@ export const Header = ({ powerOn, webSocketConnection }) => (
           <WSReconnectButton />
           <PowerButton powerOn={powerOn} />
           <UpdateModal />
+          <PluginModal />
           <EmojiBtn
             title="WiFi Settings"
             className="icon-btn"

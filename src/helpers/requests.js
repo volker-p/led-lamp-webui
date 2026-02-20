@@ -42,3 +42,19 @@ export const uploadBinary = (file, onProgress) => futch(`/update`, {
   method: "POST",
   body: file
 }, onProgress)
+
+export const fetchPlugins = () => fetch(`/plugins`).then(status).then(r => r.json())
+
+export const deletePlugin = (filename) => fetch(`/plugin/${encodeURIComponent(filename)}`, {
+  method: "DELETE",
+}).then(status)
+
+export const uploadPluginSize = (size) => fetch(`/uploadPluginSize`, {
+  method: "POST",
+  body: new URLSearchParams(`fileSize=${size}`)
+}).then(status)
+
+export const uploadPlugin = (file, onProgress) => futch(`/uploadPlugin`, {
+  method: "POST",
+  body: file
+}, onProgress)

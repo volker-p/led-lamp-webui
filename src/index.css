@@ -238,6 +238,18 @@ input[type='range']::-moz-range-thumb {
   transition: width 500ms ease-in-out;
 }
 
+.plugin-list {
+  max-height: 30vh;
+  overflow-y: scroll;
+}
+
+.plugin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
 @media (max-width: 767px) {
   .grid-container-layout {
     display: block;

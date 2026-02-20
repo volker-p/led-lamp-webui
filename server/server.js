@@ -7,11 +7,33 @@ const effects = require('../public/effects')
 const requestHandler = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Request-Method', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST')
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, DELETE')
   res.setHeader('Access-Control-Allow-Headers', '*')
   if (req.method === 'OPTIONS') {
     res.writeHead(200)
     res.end()
+    return
+  }
+  console.log(req.method, req.url)
+  if (req.method === 'GET' && req.url === '/plugins') {
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(JSON.stringify(['plugin_a.bin', 'plugin_b.bin']))
+    return
+  }
+  if (req.method === 'DELETE' && req.url.startsWith('/plugin/')) {
+    res.writeHead(200)
+    res.end('ok')
+    return
+  }
+  if (req.method === 'POST' && req.url === '/uploadPluginSize') {
+    let body = ''
+    req.on('data', (chunk) => { body += chunk.toString() })
+    req.on('end', () => { res.end('ok') })
+    return
+  }
+  if (req.method === 'POST' && req.url === '/uploadPlugin') {
+    req.on('data', () => {})
+    req.on('end', () => { res.end('ok') })
     return
   }
   let body = ''
@@ -21,8 +43,6 @@ const requestHandler = (req, res) => {
   req.on('end', () => {
     res.end('ok')
   })
-  console.log(req.url)
-  res.end('Hello Node.js Server!')
 }
 
 const server = http.createServer(requestHandler)
@@ -60,11 +80,14 @@ const updateActiveEffect = (status) => {
   state.activeEffect = status
 }
 
+const installPlugins = () => {}
+
 const EVENTS = {
   EFFECTS_CHANGED: updateEffects,
   ALARMS_CHANGED: '',
   WORKING: updateWorking,
   ACTIVE_EFFECT: updateActiveEffect,
+  INSTALL_PLUGINS: installPlugins,
 }
 
 wsServer.on('request', function (request) {
