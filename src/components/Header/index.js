@@ -11,7 +11,7 @@ export const Header = ({ powerOn, webSocketConnection }) => (
       <div className="grid-container-layout header-layout">
         <h1 className="heading">
           <span className={`status-dot ${webSocketConnection ? 'status-dot--online' : 'status-dot--offline'}`} />
-          LED – {powerOn ? 'working' : 'not working'}
+          LED – {powerOn ? 'on' : 'off'}
         </h1>
         <div className="header-actions">
           <WSReconnectButton />
