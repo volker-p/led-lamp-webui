@@ -13,7 +13,7 @@ const Control = ({ effectKey, value, handleChangeForm }) => {
   const inputValue = calcInputValue(effectKey, value)
 
   return (
-    <div>
+    <div className="control-item">
       <h3>
         {title(effectKey)}: <span className="text-secondary">{ typeof value === 'object' ? JSON.stringify(value) : value }</span>
       </h3>

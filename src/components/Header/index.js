@@ -6,11 +6,14 @@ import { PluginModal } from '../PluginModal'
 import { EmojiBtn } from '../EmojiBtn'
 
 export const Header = ({ powerOn, webSocketConnection }) => (
-  <div className={`header ${webSocketConnection ? 'active' : 'disconnected'}`}>
+  <div className="header">
     <div className="container">
-      <div className="grid-container-layout">
-        <h1 className="heading">LED - {powerOn ? 'working' : 'not working'}</h1>
-        <div>
+      <div className="grid-container-layout header-layout">
+        <h1 className="heading">
+          <span className={`status-dot ${webSocketConnection ? 'status-dot--online' : 'status-dot--offline'}`} />
+          LED – {powerOn ? 'working' : 'not working'}
+        </h1>
+        <div className="header-actions">
           <WSReconnectButton />
           <PowerButton powerOn={powerOn} />
           <UpdateModal />
