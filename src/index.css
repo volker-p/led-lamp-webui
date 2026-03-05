@@ -246,3 +246,110 @@ input[type='range']::-moz-range-thumb {
     width: auto;
   }
 }
+
+/* ── Store Modal ─────────────────────────────────────────────────────────── */
+
+.store-modal {
+  width: 520px;
+  max-height: 80vh;
+  display: none;
+  flex-direction: column;
+}
+
+.store-modal.active {
+  display: flex;
+}
+
+.store-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.store-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.store-card.installed {
+  border-color: #02b875;
+  background: #f0fff8;
+}
+
+.store-card.highlight {
+  border-color: #007ee5;
+  background: #f0f8ff;
+}
+
+.store-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.store-card-meta {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.store-card-desc {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.store-card-platforms {
+  margin-bottom: 6px;
+}
+
+.store-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.store-badge-esp32 {
+  background: #007ee5;
+  color: #fff;
+}
+
+.store-badge-esp8266 {
+  background: #02b875;
+  color: #fff;
+}
+
+.store-badge-installed {
+  background: #02b875;
+  color: #fff;
+}
+
+.store-card-actions {
+  margin-top: 8px;
+}
+
+.store-status {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #888;
+}
+
+.store-error {
+  color: #cd201f;
+}
+
+.store-message {
+  color: #02b875;
+}
+
+@media (max-width: 767px) {
+  .store-modal {
+    width: calc(100vw - 32px);
+  }
+}
