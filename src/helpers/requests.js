@@ -43,9 +43,9 @@ export const uploadBinary = (file, onProgress) => futch(`/update`, {
   body: file
 }, onProgress)
 
-export const uploadPluginSize = (size) => fetch(`/uploadPluginSize`, {
+export const uploadPluginSize = (uuid, size) => fetch(`/uploadPluginSize`, {
   method: "POST",
-  body: new URLSearchParams(`fileSize=${size}`)
+  body: new URLSearchParams(`fileSize=${size}&uuid=${encodeURIComponent(uuid)}`)
 }).then(status)
 
 export const uploadPlugin = (uuid, blob, onProgress) => futch(
