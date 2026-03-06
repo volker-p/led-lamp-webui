@@ -38,6 +38,7 @@ To deploy to the lamp, copy the gzipped output into the firmware's data/ directo
 
 ```
 cp -r gzipped/* ~/CLionProjects/GyverLampCpp/data/
+cp ~/CLionProjects/GyverLampCpp/data/index.html.gz ~/CLionProjects/GyverLampCpp/data/index-cdn.html.gz
 cd ~/CLionProjects/GyverLampCpp
 make buildfs && make uploadfs
 ```
